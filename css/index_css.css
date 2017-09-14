@@ -62,8 +62,10 @@ header > .container > nav > a.active{
 
 .banner {
     position: relative;
+    width: 100%;
     height: 670px;
     background: url(../images/index_img/banner.jpg) no-repeat;
+    background-size:100% 100%;
     overflow: hidden;
 }
 
@@ -164,11 +166,18 @@ header > .container > nav > a.active{
     padding-bottom: 50px;
 }
 
-.portfolio > article > ul{
-    margin: 0 25%;
+.portfolio > article > .ul-width {
+  min-width: 660px;
+  width: 660px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.portfolio > article > ul li {
+.portfolio > article > .ul-width  > ul{
+
+}
+
+.portfolio > article > .ul-width  > ul li {
     float: left;
     display: inline-block;
     height: 35px;
@@ -179,11 +188,11 @@ header > .container > nav > a.active{
     margin: 0 5px;
 }
 
-.portfolio > article > ul li:nth-child(1){width: 60px;margin-left: 65px;}
-.portfolio > article > ul li:nth-child(2){width: 75px;}
-.portfolio > article > ul li:nth-child(3){width: 125px;}
-.portfolio > article > ul li:nth-child(4){width: 95px;}
-.portfolio > article > ul li:nth-child(5){width: 105px;margin-right: 0;}
+.portfolio > article > .ul-width  > ul li:nth-child(1){width: 60px;margin-left: 65px;}
+.portfolio > article > .ul-width  > ul li:nth-child(2){width: 75px;}
+.portfolio > article > .ul-width  > ul li:nth-child(3){width: 125px;}
+.portfolio > article > .ul-width  > ul li:nth-child(4){width: 95px;}
+.portfolio > article > .ul-width  > ul li:nth-child(5){width: 105px;margin-right: 0;}
 
 .portfolio > article > ul li:hover{
     background: #f46208;
@@ -192,6 +201,7 @@ header > .container > nav > a.active{
 
 .portfolio > img{
     width: 100%;
+    height: 560px;
 }
 
 .stats{
@@ -415,8 +425,3 @@ footer > .container > p {
     line-height: 110px;
     color: #fff;
 }
-
-
-
-
-

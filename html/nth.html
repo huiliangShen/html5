@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>css3结构类</title>
     <style>
-        .first section > div:first-child{
+        /*.first section > div:first-child{
             color: red;
         }
 
@@ -33,6 +33,25 @@
         
         div:empty{
             background: #000;
+        }*/
+
+        .left{
+            float: left;
+            height: 30px;
+            width: 30%;
+            background: #000;
+        }
+        
+        .right{
+            float: right;
+            height: 50px;
+            width: 50%;
+            background: #f46208;
+        }
+        .content::after{
+            display: block;
+            content: ' ';
+            clear: both;
         }
     </style>
 </head>
@@ -88,9 +107,14 @@
     <article>sda</article>
 </footer>-->
 
-<div></div>
+<!--<div></div>
 <div>234</div>
-<div>656</div>
+<div>656</div>-->
+
+<div class="content">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
 
 </body>
 </html>

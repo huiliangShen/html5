@@ -194,7 +194,7 @@ header > .container > nav > a.active{
 .portfolio > article > .ul-width  > ul li:nth-child(4){width: 95px;}
 .portfolio > article > .ul-width  > ul li:nth-child(5){width: 105px;margin-right: 0;}
 
-.portfolio > article > ul li:hover{
+.portfolio > article > .ul-width > ul li:hover{
     background: #f46208;
     color: #fff;
 }

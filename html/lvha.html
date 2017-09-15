@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style>
+        a{text-decoration: none;}
+        a:link{
+            color:yellow;
+        }
+        a:visited{
+            color:#f46208;
+        }
+        a:hover{
+            color:blue;
+        }
+        a:active{
+            color:#d40112;
+        }
+
+        input{
+            width: 200px;
+            height: 30px;
+        }
+
+        input:enabled{
+            border: 10px solid red;
+        }
+
+        input:disabled{
+            border: 1px solid yellow;
+        }
+
+        input[type="checkbox"]{
+            color: #000;
+        }
+
+        input[type="checkbox"]:checked{
+            color: #f46208;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#1">这是测试伪类的</a>
+    </div>
+<div>
+    <h1>UI元素状态伪类</h1>
+    <input type="text" disabled="disabled">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="checkbox" checked="checked" name="group">
+    <input type="checkbox" name="group">
+</div>
+</body>
+</html>

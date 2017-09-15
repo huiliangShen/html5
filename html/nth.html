@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3结构类</title>
+    <style>
+        .first section > div:first-child{
+            color: red;
+        }
+
+        .last section > div:last-child{
+            color: red;
+        }
+
+        li:nth-child(3){
+            background: red;
+        }
+        .second div:nth-child(2){
+            background: red;
+        }
+
+        article:only-child{
+            background: red;
+        }
+        article:only-of-type{
+            background: yellowgreen;
+        }
+
+        div{
+            height: 200px;
+            background: greenyellow;
+        }
+        
+        div:empty{
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="first">
+    <h1>first-child</h1>
+    <section>
+        <div>1-1</div>
+        <div>1-2</div>
+        <div>1-3</div>
+    </section>
+    <section>
+        <div>2-1</div>
+        <div>2-2</div>
+        <div>2-3</div>
+    </section>
+</div>
+
+<div class="last">
+    <h1>last-child</h1>
+    <section>
+        <div>1-1</div>
+        <div>1-2</div>
+        <div>1-3</div>
+    </section>
+    <section>
+        <div>2-1</div>
+        <div>2-2</div>
+        <div>2-3</div>
+    </section>
+</div>
+
+<div class="second">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div>555</div>
+</div>-->
+
+<!--<footer>
+    <div>asd</div>
+    <article>sda</article>
+    <div>asd</div>
+    <div>asd</div>
+</footer>
+
+<footer>
+    <article>sda</article>
+</footer>-->
+
+<div></div>
+<div>234</div>
+<div>656</div>
+
+</body>
+</html>

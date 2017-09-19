@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景渐变-特殊案例</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+            background-color: #fff;
+            background-size: 100px 100px;
+            background-image: -webkit-linear-gradient(45deg, #000 25%, transparent 25%),
+                        -webkit-linear-gradient(-45deg, #000 25%, transparent 25%),
+                        -webkit-linear-gradient(45deg, transparent 75%, #000 75%),
+                        -webkit-linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-image: -moz-linear-gradient(45deg, #000 25%, transparent 25%),
+                            -moz-linear-gradient(-45deg, #000 25%, transparent 25%),
+                            -moz-linear-gradient(45deg, transparent 75%, #000 75%),
+                            -moz-linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-image: -o-linear-gradient(45deg, #000 25%, transparent 25%),
+                            -o-linear-gradient(-45deg, #000 25%, transparent 25%),
+                            -o-linear-gradient(45deg, transparent 75%, #000 75%),
+                            -o-linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+                            linear-gradient(-45deg, #000 25%, transparent 25%),
+                            linear-gradient(45deg, transparent 75%, #000 75%),
+                            linear-gradient(-45deg, transparent 75%, #000 75%);
+
+            /*background-image: linear-gradient(90deg, #000 25%, transparent 25%),
+                                linear-gradient(270deg, #000 25%, transparent 25%),
+                                linear-gradient(0deg, #000 25%, transparent 25%),
+                                linear-gradient(180deg, #000 25%, transparent 25%);*/
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

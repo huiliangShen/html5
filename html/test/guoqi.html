@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>国旗</title>
+    <style>
+        .father{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background: red;
+        }
+
+        .father > div:first-child{
+            position: relative;
+            top:100px;
+            width: 0px;
+            height: 0px;
+            border-right:100px solid  transparent;
+            border-left:100px solid transparent;
+            border-bottom:70px solid yellow;
+            transform: rotate(35deg);
+        }
+
+        .father > div:first-child:before{
+            position: absolute;
+            content: '';
+            width: 0px;
+            height: 0px;
+            left: -97px;
+            border-right: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-bottom: 70px solid yellow;
+            transform: rotate(73deg);
+        }
+
+        .father > div:first-child:after{
+            position: absolute;
+            content: '';
+            width: 0px;
+            height: 0px;
+            left: -100px;
+            border-right: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-bottom: 70px solid yellow;
+            transform: rotate(-70deg);
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

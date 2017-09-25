@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sky</title>
+    <style>
+        section{display:block;width: 100%;height: 100%}
+        .sky{
+            width: 100%;
+            height: 350px;
+            background: -webkit-linear-gradient(#cbe6fb, #fff);
+            background:    -moz-linear-gradient(#cbe6fb, #fff);
+            background:      -o-linear-gradient(#cbe6fb, #fff);
+            background:         linear-gradient(#cbe6fb, #fff);
+        }
+        .cao{
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(0deg, #accd7e, #fff);
+        }
+
+        .yun{
+            position: relative;
+            top: 50px;
+            width: 180px;
+            height: 50px;
+            background: #fff;
+            border-radius: 100px;
+        }
+
+        .yun:before,
+        .yun:after{
+            position: absolute;
+            display: block;
+            background: #fff;
+            content: ' ';
+        }
+
+        .yun:before{
+            top: -31px;
+            left: 25px;
+            width: 70px;
+            height: 71px;
+            border-radius: 100px;
+        }
+
+        .yun:after{
+            top: -51px;
+            right: 20px;
+            width: 98px;
+            height: 98px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="sky">
+        <div class="yun"></div>
+    </div>
+    
+    <div class="cao">
+        
+    </div>
+</section>
+</body>
+</html>

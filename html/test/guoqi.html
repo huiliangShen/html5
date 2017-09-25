@@ -11,18 +11,19 @@
             background: red;
         }
 
-        .father > div:first-child{
+        .father > div{
             position: relative;
-            top:100px;
+            top: 45px;
             width: 0px;
+            left: -10px;
             height: 0px;
             border-right:100px solid  transparent;
             border-left:100px solid transparent;
             border-bottom:70px solid yellow;
-            transform: rotate(35deg);
+            transform: rotate(35deg) scale(.5);
         }
 
-        .father > div:first-child:before{
+        .father > div:before{
             position: absolute;
             content: '';
             width: 0px;
@@ -34,7 +35,7 @@
             transform: rotate(73deg);
         }
 
-        .father > div:first-child:after{
+        .father > div:after{
             position: absolute;
             content: '';
             width: 0px;
@@ -45,10 +46,36 @@
             border-bottom: 70px solid yellow;
             transform: rotate(-70deg);
         }
+
+        .father > div:nth-child(2){
+            transform: rotate(-18deg) scale(.16);
+            top: -75px;
+            left: 83px;
+        }
+
+        .father > div:nth-child(3){
+            transform: rotate(8deg) scale(.16);
+            top: -111px;
+            left: 115px;
+        }
+
+        .father > div:nth-child(4){
+            transform: rotate(35deg) scale(.16);
+            top: -130px;
+            left: 116px;
+        }
+
+        .father > div:nth-last-child(1){
+            transform: rotate(-18deg) scale(.16);
+            top: -162px;
+            left: 83px;
+        }
     </style>
 </head>
 <body>
 <div class="father">
+    <div></div>
+    <div></div>
     <div></div>
     <div></div>
     <div></div>

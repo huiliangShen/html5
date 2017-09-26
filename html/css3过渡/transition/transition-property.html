@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition-property</title>
+    <style>
+        div{
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background: url('../../../images/index_img/team1.jpg') no-repeat center center, skyblue;
+            transform: rotate(0deg);
+            -webkit-transition-property: transform;
+               -moz-transition-property: transform;
+                -ms-transition-property: transform;
+                 -o-transition-property: transform;
+                    transition-property: transform;
+        }
+        div:hover{
+            cursor: pointer;
+            transform: rotate(180deg);
+            -webkit-transition-property: transform;
+               -moz-transition-property: transform;
+                -ms-transition-property: transform;
+                 -o-transition-property: transform;
+                    transition-property: transform;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局-flex</title>
+    <style>
+        .wrapper{
+            display: flex;
+            background: #ffffff;
+            height: 500px;
+        }
+
+        .left{
+            flex: 0 0 200px;
+            width: 200px;
+            background: yellowgreen;
+            height: 500px;
+        }
+        .right{
+            flex: 1;
+            width: 100%;
+            background: #000;
+            height: 500px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .left{
+                width: 0;
+                flex: 0;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .click{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="left">
+        left
+    </div>
+    <div class="right">
+        <button type="button" class="click">click</button>
+        right
+    </div>
+</div>
+<script>
+    window.addEventListener('click',function (e) {
+        var left = document.querySelector('.left');
+        left.style.width = '200px';
+        left.style.flex = '0 0 200px';
+        left.style.zIndex = '99';
+        left.style.transition = 'all 0.5s ease-out';
+        // left.style.transform = 'translateX(200px)';
+    },false);
+</script>
+</body>
+</html>

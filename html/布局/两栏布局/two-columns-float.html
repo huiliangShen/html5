@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局</title>
+    <style>
+        .wrapper{
+            overflow: hidden;
+            background: #ffffff;
+            height: 500px;
+        }
+
+        .left{
+            float: left;
+            width: 200px;
+            margin-right: -200px;
+            background: yellowgreen;
+            height: 500px;
+        }
+        .right{
+            float: left;
+            width: 100%;
+            margin-left: 200px;
+            background: #000;
+            height: 500px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .left{
+                width: 0px;
+            }
+
+            .right{
+                margin-left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            left
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .text {
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            color: #fff;
+        }
+        header,
+        footer{
+            background: blanchedalmond;
+            height: 100px;
+        }
+        .wrapper{
+            overflow: hidden;
+            padding: 0 200px;
+        }
+
+        .main{
+            float: left;
+            background: #000;
+            width: 100%;
+        }
+
+        .left{
+            float: left;
+            width: 200px;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .right{
+            float: left;
+            width: 200px;
+            margin-left: -200px;
+            position: relative;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+<header class="">圣杯布局</header>
+<div class="wrapper">
+    <div class="main text">
+        圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局
+        圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局
+        圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局
+        圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局
+    </div>
+    <div class="left text">left</div>
+    <div class="right text">right</div>
+</div>
+<footer class="">结束</footer>
+</body>
+</html>

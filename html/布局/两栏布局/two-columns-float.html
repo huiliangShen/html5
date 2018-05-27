@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <title>两栏布局</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .wrapper{
             overflow: hidden;
             background: #ffffff;
-            height: 500px;
         }
 
-        .left{
+       /* .left{
             float: left;
             width: 200px;
             margin-right: -200px;
             background: yellowgreen;
-            height: 500px;
+            height: 1500px;
         }
         .right{
             float: left;
             width: 100%;
             margin-left: 200px;
             background: #000;
+            height: 1500px;
+        }*/
+
+        .left{
+            float: left;
+            width: 200px;
+            background: yellowgreen;
             height: 500px;
+        }
+        .right{
+            margin-left: 200px;
+            background: indianred;
+            height: 500px;
+        }
+
+        footer{
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            left: 0;
+            background: greenyellow;
         }
 
         @media screen and (max-width: 768px) {
@@ -34,6 +58,7 @@
                 margin-left: 0px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -42,8 +67,15 @@
             left
         </div>
         <div class="right">
-            right
+           <h5>这是标题</h5>
+            <p>asdlsadhlwhqdohqowidhiohdsishadiowqdhoiwqd</p>
         </div>
     </div>
+    <div>
+        asd
+    </div>
+    <footer>
+        CopyRight 2017-2018
+    </footer>
 </body>
 </html>

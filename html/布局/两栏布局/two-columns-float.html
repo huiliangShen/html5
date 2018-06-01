@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>两栏布局</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
     <style>
         *{
             margin: 0;
@@ -69,6 +71,8 @@
         <div class="right">
            <h5>这是标题</h5>
             <p>asdlsadhlwhqdohqowidhiohdsishadiowqdhoiwqd</p>
+            <select name="" id="" class="js-example-basic-single" >
+            </select>
         </div>
     </div>
     <div>
@@ -77,5 +81,50 @@
     <footer>
         CopyRight 2017-2018
     </footer>
+    <script src="https://cdn.bootcss.com/jquery/1.8.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://cdn.bootcss.com/select2/4.0.6-rc.1/js/i18n/zh-CN.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var data = [
+                {
+                    id: 0,
+                    text: '请选择'
+                },
+                {
+                    id: 1,
+                    text: 'bug'
+                },
+                {
+                    id: 2,
+                    text: 'duplicate'
+                },
+                {
+                    id: 3,
+                    text: 'invalid'
+                },
+                {
+                    id: 4,
+                    text: '123'
+                },
+                {
+                    id: 5,
+                    text: '567'
+                },
+                {
+                    id: 6,
+                    text: '7878',
+                    "selected": true
+                }
+            ];
+            $('.js-example-basic-single').select2({
+                placeholder: '请选择',
+                language: "zh-CN",
+                data: data,
+                width: '300px'
+            });
+        });
+    </script>
 </body>
 </html>

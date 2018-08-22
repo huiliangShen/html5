@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var options = {
+            // 是否开启高精度
+            enableHighAccuracy: false,
+            // 超时时间
+            timeout: 30000,
+            // 用户微信信息缓存的最大时间
+            maximumAge: 0
+        }
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                success,
+                errpr,
+                options
+            )
+        } else {
+            alert('不支持');
+        }
+
+        function success(prosition) {
+            alert(prosition);
+        }
+        function errpr(prositionError) {
+            alert(prositionError);
+        }
+    </script>
+</body>
+
+</html>

@@ -103,3 +103,16 @@ Function.prototype.myCall = function (context) {
       console.log(this.age);
   }
   getValue.myCall(a, '1aaa', '2bbb');
+
+  var M = function() {this.name = 1}
+  var new2 = function(func) {
+      var o = Object.create(M.prototype)
+      var k = func.call(o)
+      if (typeof k === 'object') {
+          return k
+      } else {
+          return o
+      }
+  }
+
+  var c = new2(M)

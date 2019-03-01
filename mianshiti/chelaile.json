@@ -1,0 +1,576 @@
+{
+    "jsonr": {
+        "data": {
+            "targetOrder": 6,
+            "line": {
+                "desc": "等待发车…",
+                "direction": 0,
+                "endSn": "振兴路同德路",
+                "firstTime": "06:15",
+                "lastTime": "17:40",
+                "lineId": "18-0",
+                "lineNo": "18",
+                "name": "18",
+                "price": "2元",
+                "shortDesc": "等待发车",
+                "sortPolicy": "flpolicy=0",
+                "startSn": "展望路公交首末站",
+                "state": -1,
+                "stationsNum": 30,
+                "type": 0,
+                "version": ""
+            },
+            "roads": [
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 4
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 1
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 3
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 2
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 1
+                    }
+                ],
+                [
+                    {
+                        "TPC": 1,
+                        "TVL": 1
+                    }
+                ]
+            ],
+            "depTable": 1,
+            "stations": [
+                {
+                    "distanceToSp": 0,
+                    "lat": 30.73362041202029,
+                    "lng": 120.73458265103989,
+                    "metros": [],
+                    "order": 1,
+                    "sId": "0573-1955",
+                    "sn": "展望路公交首末站"
+                },
+                {
+                    "distanceToSp": 442,
+                    "lat": 30.735126568857744,
+                    "lng": 120.73740046385099,
+                    "metros": [],
+                    "order": 2,
+                    "sId": "0573-1956",
+                    "sn": "经投大厦西"
+                },
+                {
+                    "distanceToSp": 363,
+                    "lat": 30.73808632436595,
+                    "lng": 120.73584394472263,
+                    "metros": [],
+                    "order": 3,
+                    "sId": "0573-445",
+                    "sn": "市科创中心西"
+                },
+                {
+                    "distanceToSp": 346,
+                    "lat": 30.741026647289285,
+                    "lng": 120.7346085595505,
+                    "metros": [],
+                    "order": 4,
+                    "sId": "0573-446",
+                    "sn": "市人才公寓"
+                },
+                {
+                    "distanceToSp": 298,
+                    "lat": 30.742333727361295,
+                    "lng": 120.73554150071494,
+                    "metros": [],
+                    "order": 5,
+                    "sId": "0573-160",
+                    "sn": "市科创中心北"
+                },
+                {
+                    "distanceToSp": 642,
+                    "lat": 30.746223577373556,
+                    "lng": 120.73859377793447,
+                    "metros": [],
+                    "order": 6,
+                    "sId": "0573-61",
+                    "sn": "姜家村公寓"
+                },
+                {
+                    "distanceToSp": 557,
+                    "lat": 30.75095640870092,
+                    "lng": 120.73988600637094,
+                    "metros": [],
+                    "order": 7,
+                    "sId": "0573-62",
+                    "sn": "嘉兴学院越秀校区"
+                },
+                {
+                    "distanceToSp": 369,
+                    "lat": 30.752031454075656,
+                    "lng": 120.74235757601822,
+                    "metros": [],
+                    "order": 8,
+                    "sId": "0573-447",
+                    "sn": "真合路文萃路"
+                },
+                {
+                    "distanceToSp": 365,
+                    "lat": 30.751609738924778,
+                    "lng": 120.7457949258624,
+                    "metros": [],
+                    "order": 9,
+                    "sId": "0573-448",
+                    "sn": "城南路真合路"
+                },
+                {
+                    "distanceToSp": 464,
+                    "lat": 30.75505929737018,
+                    "lng": 120.74842532007241,
+                    "metros": [],
+                    "order": 10,
+                    "sId": "0573-449",
+                    "sn": "城南路文昌路"
+                },
+                {
+                    "distanceToSp": 264,
+                    "lat": 30.756798011161482,
+                    "lng": 120.75024847145703,
+                    "metros": [],
+                    "order": 11,
+                    "sId": "0573-450",
+                    "sn": "城南花园"
+                },
+                {
+                    "distanceToSp": 626,
+                    "lat": 30.76057435786642,
+                    "lng": 120.75394278766535,
+                    "metros": [],
+                    "order": 12,
+                    "sId": "0573-451",
+                    "sn": "沈钧儒故居"
+                },
+                {
+                    "distanceToSp": 518,
+                    "lat": 30.76369463658158,
+                    "lng": 120.75604859767398,
+                    "metros": [],
+                    "order": 13,
+                    "sId": "0573-452",
+                    "sn": "市社保局"
+                },
+                {
+                    "distanceToSp": 190,
+                    "lat": 30.765408342234327,
+                    "lng": 120.75599472187669,
+                    "metros": [],
+                    "order": 14,
+                    "sId": "0573-453",
+                    "sn": "禾兴南路戴梦得"
+                },
+                {
+                    "distanceToSp": 497,
+                    "lat": 30.76986375612069,
+                    "lng": 120.75552518054691,
+                    "metros": [],
+                    "order": 15,
+                    "sId": "0573-454",
+                    "sn": "禾兴南路小西门横街"
+                },
+                {
+                    "distanceToSp": 415,
+                    "lat": 30.771521130301707,
+                    "lng": 120.75831792570382,
+                    "metros": [],
+                    "order": 16,
+                    "sId": "0573-979",
+                    "sn": "勤俭路少年路"
+                },
+                {
+                    "distanceToSp": 553,
+                    "lat": 30.775278600129866,
+                    "lng": 120.75889201285489,
+                    "metros": [],
+                    "order": 17,
+                    "sId": "0573-1739",
+                    "sn": "月河历史街区东"
+                },
+                {
+                    "distanceToSp": 507,
+                    "lat": 30.77979675450966,
+                    "lng": 120.75841697251911,
+                    "metros": [],
+                    "order": 18,
+                    "sId": "0573-456",
+                    "sn": "嘉禾北京城"
+                },
+                {
+                    "distanceToSp": 501,
+                    "lat": 30.78032285613779,
+                    "lng": 120.75418255075014,
+                    "metros": [],
+                    "order": 19,
+                    "sId": "0573-457",
+                    "sn": "新嘉派出所"
+                },
+                {
+                    "distanceToSp": 235,
+                    "lat": 30.779518854728014,
+                    "lng": 120.75192392565812,
+                    "metros": [],
+                    "order": 20,
+                    "sId": "0573-458",
+                    "sn": "市广播电台"
+                },
+                {
+                    "distanceToSp": 469,
+                    "lat": 30.77838323950807,
+                    "lng": 120.74722577951749,
+                    "metros": [],
+                    "order": 21,
+                    "sId": "0573-459",
+                    "sn": "东升东路城北路"
+                },
+                {
+                    "distanceToSp": 459,
+                    "lat": 30.778852006983882,
+                    "lng": 120.74269462585544,
+                    "metros": [],
+                    "order": 22,
+                    "sId": "0573-460",
+                    "sn": "东升苑"
+                },
+                {
+                    "distanceToSp": 646,
+                    "lat": 30.782250188332025,
+                    "lng": 120.73717185579547,
+                    "metros": [],
+                    "order": 23,
+                    "sId": "0573-44",
+                    "sn": "嘉州美都（实验小学）"
+                },
+                {
+                    "distanceToSp": 450,
+                    "lat": 30.78285102686417,
+                    "lng": 120.73259621105437,
+                    "metros": [],
+                    "order": 24,
+                    "sId": "0573-43",
+                    "sn": "东升东路中环西路"
+                },
+                {
+                    "distanceToSp": 242,
+                    "lat": 30.782812517153076,
+                    "lng": 120.73006021872988,
+                    "metros": [],
+                    "order": 25,
+                    "sId": "0573-40",
+                    "sn": "嘉北街道办事处"
+                },
+                {
+                    "distanceToSp": 324,
+                    "lat": 30.782762110949335,
+                    "lng": 120.7266623310093,
+                    "metros": [],
+                    "order": 26,
+                    "sId": "0573-41",
+                    "sn": "市广电中心"
+                },
+                {
+                    "distanceToSp": 313,
+                    "lat": 30.783050693953395,
+                    "lng": 120.72341675168012,
+                    "metros": [],
+                    "order": 27,
+                    "sId": "0573-1852",
+                    "sn": "东升西路昌盛中路"
+                },
+                {
+                    "distanceToSp": 780,
+                    "lat": 30.7890846575056,
+                    "lng": 120.72301988456977,
+                    "metros": [],
+                    "order": 28,
+                    "sId": "0573-461",
+                    "sn": "昌盛花园西区"
+                },
+                {
+                    "distanceToSp": 741,
+                    "lat": 30.790834982791573,
+                    "lng": 120.72891049798348,
+                    "metros": [],
+                    "order": 29,
+                    "sId": "0573-462",
+                    "sn": "振兴路昌盛中路"
+                },
+                {
+                    "distanceToSp": 468,
+                    "lat": 30.78760096850325,
+                    "lng": 120.7320413651315,
+                    "metros": [],
+                    "order": 30,
+                    "sId": "0573-463",
+                    "sn": "振兴路同德路"
+                }
+            ],
+            "isStnAdsExpand": 1,
+            "notify": 0,
+            "isFlowExpand": 0,
+            "toast": "",
+            "feed": 0,
+            "depDesc": "上一班1分钟前过站",
+            "buses": [
+                {
+                    "acBus": 0,
+                    "beforeBaseIndex": -1,
+                    "beforeLat": -1.0,
+                    "beforeLng": -1.0,
+                    "busBaseIndex": -1,
+                    "busDesc": "",
+                    "busDescList": [],
+                    "busId": "浙F30159",
+                    "delay": 0,
+                    "distanceToSc": 0,
+                    "lat": 30.74663,
+                    "licence": "浙F30159",
+                    "link": "",
+                    "lng": 120.72918,
+                    "mTicket": 0,
+                    "order": 7,
+                    "rType": 0,
+                    "shareId": "",
+                    "state": 1,
+                    "syncTime": 9,
+                    "travels": [],
+                    "userName": "",
+                    "userPhoto": ""
+                },
+                {
+                    "acBus": 0,
+                    "beforeBaseIndex": -1,
+                    "beforeLat": -1.0,
+                    "beforeLng": -1.0,
+                    "busBaseIndex": -1,
+                    "busDesc": "",
+                    "busDescList": [],
+                    "busId": "浙F32675",
+                    "delay": 0,
+                    "distanceToSc": 408,
+                    "lat": 30.76248,
+                    "licence": "浙F32675",
+                    "link": "",
+                    "lng": 120.7451,
+                    "mTicket": 0,
+                    "order": 15,
+                    "rType": 0,
+                    "shareId": "",
+                    "state": 0,
+                    "syncTime": 2,
+                    "travels": [],
+                    "userName": "",
+                    "userPhoto": ""
+                },
+                {
+                    "acBus": 0,
+                    "beforeBaseIndex": -1,
+                    "beforeLat": -1.0,
+                    "beforeLng": -1.0,
+                    "busBaseIndex": -1,
+                    "busDesc": "",
+                    "busDescList": [],
+                    "busId": "浙F18502",
+                    "delay": 0,
+                    "distanceToSc": 229,
+                    "lat": 30.77875,
+                    "licence": "浙F18502",
+                    "link": "",
+                    "lng": 120.71508,
+                    "mTicket": 0,
+                    "order": 27,
+                    "rType": 0,
+                    "shareId": "",
+                    "state": 0,
+                    "syncTime": 2,
+                    "travels": [],
+                    "userName": "",
+                    "userPhoto": ""
+                }
+            ],
+            "otherlines": [
+                {
+                    "endSn": "展望路公交首末站",
+                    "firstTime": "06:40",
+                    "lastTime": "18:30",
+                    "lineId": "18-1",
+                    "price": "2元",
+                    "startSn": "振兴路同德路"
+                }
+            ],
+            "fav": 0,
+            "tip": {
+                "desc": "等车很无聊，去能量馆逛逛呗",
+                "destType": 1
+            },
+            "traffic": 0
+        },
+        "errmsg": null,
+        "status": "00",
+        "sversion": null
+    }
+}

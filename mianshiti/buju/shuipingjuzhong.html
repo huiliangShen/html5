@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平居中Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .layout {
+            margin-top: 10px;
+            background: blue;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="layout parent">
+        <style>
+            .parent {
+                text-align: center;
+            }
+
+            .child {
+                display: inline-block;
+                background: #666;
+            }
+        </style>
+        <span class="child">
+            这种demo
+        </span>
+    </section>
+
+    <section class="layout parent1">
+        <style>
+            .parent1 {
+            }
+
+            .child1 {
+                display: table;
+                margin: 0 auto;
+                background: #666;
+            }
+        </style>
+        <span class="child1">
+            这种demo
+        </span>
+    </section>
+
+    <section class="layout parent2">
+        <style>
+            .parent2 {
+                position: relative;
+            }
+
+            .child2 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #666;
+            }
+        </style>
+        <span class="child2">
+            positon transform这种demo
+        </span>
+    </section>
+
+    <section class="layout parent3">
+        <style>
+            .parent3 {
+                position: relative;
+            }
+
+            .child3 {
+                position: absolute;
+                left: 50%;
+                width: 100px;
+                margin-left: -50px;
+                background: #666;
+            }
+        </style>
+        <span class="child3">
+           定宽的 这种demo
+           如果定宽，兼容性比transform高
+        </span>
+    </section>
+
+    <section class="layout parent4">
+        <style>
+            .parent4 {
+                display: flex;
+                justify-content: center;
+            }
+
+            .child4 {
+                background: #666;
+            }
+        </style>
+        <div class="child4">
+            flex 这种demo
+            asdjhqiowdajdioqjdiqwd
+        </div>
+    </section>
+</body>
+
+</html>

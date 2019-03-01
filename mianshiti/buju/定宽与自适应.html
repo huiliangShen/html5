@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定宽与自适应</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .layout {
+            margin-top: 10px;
+        }
+
+        .layout div {
+            min-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="layout float father">
+        <style>
+            .float .left {
+                float: left;
+                width: 100px;
+                background: red;
+            }
+
+            .float .right {
+                background: yellow;
+                overflow: hidden;
+            }
+        </style>
+        <div class="left">
+            left
+        </div>
+        <div class="right">
+            <p>float right</p>
+            <p>float right</p>
+        </div>
+    </section>
+
+    <section class="layout table">
+        <style>
+            .table {
+                display: table;
+                width: 100%;
+            }
+
+            .left {
+                display: table-cell;
+                width: 100px;
+                background: red;
+            }
+
+            .right {
+                background: yellow;
+            }
+        </style>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </section>
+
+    <section class="layout flex">
+        <style>
+            .flex {
+                display: flex;
+            }
+            .flex .left {
+                width: 100px;
+                background: red;
+            }
+            .flex .right {
+                flex: 1;
+                background: yellow;
+            }
+        </style>
+        <div class="left">
+            flex left
+        </div>
+        <div class="right">1</div>
+    </section>
+
+    <section class="layout position">
+        <style>
+            .position{
+                position: relative;
+                height: 100px;
+            }
+            .position .left {
+                width: 100px;
+                position: absolute;
+                left: 0;
+                background: #000;
+            }
+            .position .right {
+                position: absolute;
+                left: 100px;
+                right: 0;
+                background: yellow;
+            }
+        </style>
+        <div class="left">1</div>
+        <div class="right">1</div>
+    </section>
+
+    <section class="layout gird">
+            <style>
+                .gird{
+                    display: grid;
+                    width: 100%;
+                    grid-template-columns: 100px auto;
+                }
+                .gird .left {
+                    background: #000;
+                }
+                .gird .right {
+                    background: yellow;
+                }
+            </style>
+            <div class="left">1</div>
+            <div class="right">1</div>
+        </section>
+</body>
+
+</html>

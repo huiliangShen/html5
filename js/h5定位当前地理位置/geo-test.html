@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地图展示</title>
+</head>
+
+<body>
+    <div id="map" style="width:600px;height: 700px;margin: 0 auto"></div>
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js"></script>
+    <script type="text/javascript" src="./haiyan.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('map'));
+        echarts.registerMap('haiyan', haiyan2, {});
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}'
+            },
+            series: [
+                {
+                    name: '海盐',
+                    type: 'map',
+                    mapType: 'haiyan',
+                    aspectScale: 0.85,  //地图长度比
+                    label: {
+                        normal: {
+                            show: true,
+                            textStyle: {
+                                color: '#000'
+                            }
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                color: '#000'
+                            }
+                        }
+                    },
+                    // itemStyle: {
+                    //     areaColor: '#666',
+                    //     shadowColor: '#000'
+                    // },
+                    data: [
+                        { name: '街道1', value: 17000 },
+                        { name: '街道2', value: 1000 },
+                        { name: '街道3', value: 5000 },
+                        { name: '街道4', value: 20000 }
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+        myChart.on('click',function(param){
+            alert('点击了' + param.name);
+        })
+    </script>
+</body>
+
+</html>

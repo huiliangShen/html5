@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script type="text/javascript">
+           var dom  = document.getElementById('ul');
+           dom.addEventListener('click', function(e) {
+               var nodeName = e.target;
+               alert(nodeName.nodeName + ' ' + nodeName.innerText);
+           })
+
+        // var dom2 = document.getElementsByTagName('li');
+        // for (var i = 0; i < dom2.length; i++) {
+        //     dom2[i].addEventListener('click', function (i) {
+        //         return function () { alert(i); }
+        //     }(i), true);
+        // }
+    </script>
+</body>
+
+</html>

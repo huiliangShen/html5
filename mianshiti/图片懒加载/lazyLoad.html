@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main, img {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- <img src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg"> -->
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+        <img src="" alt="" data-src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+    </main>
+    <script type="text/javascript">
+        var imgs = document.querySelectorAll('img');
+        function lazyLoad(imgs) {
+            let h = window.innerHeight;
+            let s = document.documentElement.scrollTop || document.body.scrollTop;
+            for(let i = 0;i< imgs.length;i ++) {
+                if (h + s > getTop(imgs[i])) {
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                }
+            }
+        }
+        function getTop(img) {
+            let t = img.offsetTop;
+            while(img = img.offsetParent) {
+                t += img.offsetTop;
+            }
+            return t;
+        }
+        window.onload = window.onscroll = () => {
+            lazyLoad(imgs);
+        }
+    </script>
+</body>
+
+</html>

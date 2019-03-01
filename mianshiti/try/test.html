@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    main {
+      width: 100%;
+      height: 100%;
+    }
+    .top {
+      width: 100%;
+      height: 100px;
+      background: blue;
+      height: 50%;
+    }
+    .bottom {
+      /* display: flex;
+      flex-direction: row; */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 50%;
+    }
+    .left {
+      /* float: left; */
+      /* display: inline-block; */
+      background: yellow;
+      /* width: 50%; */
+      /* flex: 1; */
+    }
+    .right {
+      /* float: left; */
+      /* display: inline-block; */
+      background: red;
+      /* width: 50%; */
+      /* flex: 1; */
+    }
+  </style>
+<body>
+  <main>
+    <div class="top">top</div>
+    <div class="bottom">
+      <div class="left">left</div><div class="right">right</div>
+    </div>
+  </main>
+<canvas id="canvas" width="500" height="500">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<!-- <script>
+
+!function () {
+
+  class Panel {
+    constructor(canvas, x, y, r, n) {
+      this.canvas = canvas;
+      this.ctx = canvas.getContext('2d');
+      this.ratio = 1;
+      this.initScreenRatio();
+      this.x = x * this.ratio;
+      this.y = y * this.ratio;
+      this.r = r * this.ratio;
+      this.n = n * this.ratio;
+      this.dr = Math.round(this.r / this.n);
+      this.basePos = this.canvas.getBoundingClientRect();
+      this.prePos = null;
+      this.drawPanel();
+      this.initEvent();
+    }
+
+    initScreenRatio() {
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      const backingStoreRatio = this.ctx.webkitBackingStorePixelRatio ||
+        this.ctx.mozBackingStorePixelRatio ||
+        this.ctx.msBackingStorePixelRatio ||
+        this.ctx.oBackingStorePixelRatio ||
+        this.ctx.backingStorePixelRatio || 1;
+
+      const ratio = devicePixelRatio / backingStoreRatio;
+      this.canvas.style.borderWidth = 0;
+      this.canvas.style.width = this.canvas.offsetWidth;
+      this.canvas.style.height = this.canvas.offsetHeight;
+      this.canvas.width = ratio * this.canvas.offsetWidth;
+      this.canvas.height = ratio * this.canvas.offsetHeight;
+      this.ratio = ratio;
+    }
+
+
+    drawPanel(clear) {
+      const {x, y, ctx, r, dr, n,actived} = this;
+      const _2PI = 2 * Math.PI;
+      let i = 1;
+      if(clear!==false){
+        this.clear();
+      }
+      ctx.save();
+      ctx.strokeStyle = '#ddd';
+      ctx.setLineDash([8, 4]);
+
+      //圆盘
+      ctx.save();
+      for (; i < n + 1; i++) {
+        ctx.beginPath();
+        ctx.arc(x, y, i * dr, 0, _2PI);
+        if(i===n){
+          ctx.strokeStyle = actived?'#f00':'#ddd';
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+      //分割线
+      ctx.translate(x, y);
+      ctx.setLineDash([]);
+      for (i = 0; i < 8; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, r);
+        ctx.stroke();
+        ctx.rotate(_2PI / 8);
+      }
+      ctx.restore();
+    }
+
+    clear(){
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+    }
+
+    getArea(px, py) {
+      const {basePos, x, y, dr} = this;
+      const dx = (px - basePos.left) * this.ratio - x;
+      const dy = (py - basePos.top) * this.ratio - y;
+      const d = Math.ceil(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+      let anum = Math.ceil(d / dr);
+      if (dx === 0) {
+        anum = 0;
+      }
+      const actan = dx > 0 ? (dy > 0 ? Math.atan(dy / dx) : 2 * Math.PI + Math.atan(dy / dx)) : Math.PI + Math.atan(dy / dx);
+      return {
+        n: anum > this.n ? null : anum,
+        rotate: Math.floor(actan * 4 / Math.PI)
+      }
+    }
+
+    fillCellPath(pos, col) {
+      const {ctx, dr, x, y} = this;
+      if (pos.n) {
+        this.clear();
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(pos.rotate * Math.PI / 4);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, (pos.n) * dr, 0, Math.PI / 4);
+        ctx.closePath();
+        ctx.fillStyle = col || '#000';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, (pos.n - 1) * dr, 0, Math.PI / 4);
+        ctx.closePath();
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+        ctx.restore();
+        this.drawPanel(false);
+      }
+    }
+
+    initEvent() {
+      this.canvas.addEventListener('mousemove', (e) => {
+        const pos = this.getArea(e.pageX, e.pageY);
+        if (!this.prePos || this.prePos.n !== pos.n || this.prePos.rotate !== pos.rotate && pos.n) {
+          this.actived = true;
+          if (this.prePos) {
+            this.fillCellPath(this.prePos, '#fff');
+          }
+          this.fillCellPath(pos, '#000');
+          this.prePos = pos;
+        }else if(!pos.n){
+          this.actived = false;
+          this.drawPanel();
+        }
+      })
+    }
+
+  }
+
+
+  const canvas = document.getElementById('canvas');
+  const panel = new Panel(canvas, 200, 200, 200, 5);
+
+} ()
+
+
+</script>  -->
+
+</body>
+</html>

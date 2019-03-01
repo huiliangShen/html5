@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3d模仿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+            background: -webkit-radial-gradient(center, circle, #00a6ce 5%, #000a21 100%);
+            background: radial-gradient(center, circle, #00a6ce 5%, #000a21 100%);
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            margin: 10px auto;
+            padding: 200px;
+            position: relative;
+            -webkit-perspective: 600px;
+            perspective: 600px;
+        }
+
+        .cube-inner {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            transition: .3s;
+            /*-webkit-transform-origin:50% 50% -100px -100px;*/
+            -webkit-transform-origin: 50% 50% -100px;
+        }
+
+        .cube-inner .single-side {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .cube-inner .single-side span {
+            display: block;
+            line-height: 200px;
+        }
+
+        .cube-inner .single-side:after,
+        .cube-inner .single-side:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 1px;
+            transform: scaleX(.8);
+            -webkit-transform: scaleX(.8);
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .58) 50%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .58) 50%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .cube-inner .single-side:after {
+            top: auto;
+            bottom: 0;
+        }
+
+        .cube-inner .single-side span:after,
+        .cube-inner .single-side span:before {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            position: absolute;
+            height: 200px;
+            width: 1px;
+            transform: scaleY(.8);
+            -webkit-transform: scaleY(.8);
+            background: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .58) 50%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .58) 50%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .cube-inner .single-side span:after {
+            left: auto;
+            right: 0;
+        }
+
+        .cube-inner .single-side.s1 {
+            /*s1顶部*/
+            left: 0;
+            top: -200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), #00adff);
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), #00adff);
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+
+        .cube-inner .single-side.s2 {
+            /*s2正面*/
+            left: 0;
+            top: 0;
+            z-index: 6;
+            transform-origin: center;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), #8446e4);
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), #8446e4);
+        }
+
+        .cube-inner .single-side.s3 {
+            /*s3底部*/
+            left: 0;
+            top: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), #100067);
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), #100067);
+            transform-origin: top;
+            -webkit-transform: rotateX(-90deg);
+        }
+
+        .cube-inner .single-side.s4 {
+            /*s4背部*/
+            z-index: 2;
+            left: 0;
+            top: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), #F0C);
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), #F0C);
+            -webkit-transform: translateZ(-200px) rotateX(180deg);
+            /*rotateZ(-180deg) 左右旋转的时候，Z轴旋转180°，因为字是倒着的*/
+        }
+
+        .cube-inner .single-side.s5 {
+            /*s5左侧*/
+            left: -200px;
+            top: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), rgba(33, 33, 33, 1));
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), rgba(33, 33, 33, 1));
+            transform-origin: right;
+            -webkit-transform: rotateY(-90deg)
+        }
+
+        .cube-inner .single-side.s6 {
+            /*s6右侧*/
+            right: -200px;
+            top: 0;
+            transform-origin: left;
+            -webkit-transform-origin: left;
+            background: radial-gradient(circle, rgba(255, 255, 255, .88), #f00);
+            background: -webkit-radial-gradient(circle, rgba(255, 255, 255, .88), #f00);
+            transform: rotateY(90deg);
+            -webkit-transform: rotateY(90deg);
+        }
+
+        .cube .cube-inner.running {
+            animation: elfCube 10s infinite ease-in-out;
+            -webkit-animation: elfCube 10s infinite ease alternate;
+        }
+
+        @keyframes elfCube {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            50% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+
+        @-webkit-keyframes elfCube {
+            0% {
+                -webkit-transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            50% {
+                -webkit-transform: rotateX(360deg) rotateY(360deg);
+            }
+
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="cube-inner running">
+            <p class="single-side s1"><span>最</span></p>
+            <p class="single-side s1"><span>懂</span></p>
+            <p class="single-side s1"><span>你</span></p>
+            <p class="single-side s1"><span>的</span></p>
+            <p class="single-side s1"><span>魔</span></p>
+            <p class="single-side s1"><span>方</span></p>
+        </div>
+    </div>
+</body>
+
+</html>

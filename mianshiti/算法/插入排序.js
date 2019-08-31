@@ -28,4 +28,4 @@ function fib(n) {
     console.log(array)
     return array[n]
 }
-fib(10)
+console.log(fib(10), 10)

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>float</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        section,
+        aside,
+        main,
+        div {
+            display: block;
+        }
+
+        section {
+            height: 22px;
+            background: blueviolet;
+        }
+
+        aside {
+            float: left;
+            background: yellowgreen;
+        }
+
+        main {
+            float: left;
+        }
+
+        div {
+            background: sandybrown;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <aside>234324</aside>
+        <main>这是右侧</main>
+        <aside>234324</aside>
+        <main>这是右侧</main>
+        <aside>234324</aside>
+        <main>这是右侧</main>
+        <!-- <div class="clearfix"></div> -->
+    </section>
+    <div>
+        这是float的下面的
+    </div>
+</body>
+
+</html>

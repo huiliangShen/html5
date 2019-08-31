@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变换</title>
+    <style>
+        .play {
+            transition: transform 3s linear;
+            /* transform: scale(1.1) translate(10px) skew(10deg) rotate(45deg); */
+            margin: 50px;
+            border: 5px solid blue;
+            width: 300px;
+            height: 300px;
+            background: blueviolet;
+        }
+
+        .play:hover {
+            transform: rotate(360deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="circle" class="play"
+            src="https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000" alt="">
+    </div>
+</body>
+
+</html>

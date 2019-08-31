@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #video{
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
     <div>
         <button type="button" id="capture">拍照</button>
     </div>
-    <canvas id="canvas" width="480" height="320"></canvas>
+    <canvas id="canvas" width="480" height="480"></canvas>
     <script>
         function getUserMedia(constraints, success, error) {
             if (navigator.mediaDevices.getUserMedia) {
@@ -39,7 +44,12 @@
         function success(stream) {
             var compatibleURL = window.URL || window.webkitURL;
             // 将视频转化为video源
-            video.src = compatibleURL.createObjectURL(stream);
+            try {
+                video.src = compatibleURL.createObjectURL(stream);
+            }
+            catch(e) {
+                video.srcObject = stream;
+            }
             video.play();
         }
 

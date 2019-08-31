@@ -1,3 +1,4 @@
+// 斐波那契数列
 function fib(n) {
     let array = new Array(n).fill(null)
     array[0] = 0

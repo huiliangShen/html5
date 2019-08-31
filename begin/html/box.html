@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒模型样例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            height: 200px;
+            font-size: 0;
+        }
+        .left {
+            width: 80%;
+            background: #000;
+        }
+        .rigth {
+            width: 20%;
+            background: blue;
+            border: 10px solid rebeccapurple;
+            box-sizing: border-box;
+        }
+        div {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 20px;
+            height: 100%;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="left">
+            这是左边
+        </div>
+        <div class="rigth">
+            这是右边
+        </div>
+    </section>
+    <section style="margin-top: 10px">
+            <div class="left">
+                这是左边
+            </div>
+            <div class="rigth" style="box-sizing: content-box;">
+                这是右边
+            </div>
+        </section>
+</body>
+</html>

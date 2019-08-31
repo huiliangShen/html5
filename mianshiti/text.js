@@ -104,7 +104,7 @@ Function.prototype.myCall = function (context) {
   }
   getValue.myCall(a, '1aaa', '2bbb');
 
-  var M = function() {this.name = 1}
+  var M = function(name) {this.name = name}
   var new2 = function(func) {
       var o = Object.create(M.prototype)
       var k = func.call(o)
@@ -115,4 +115,70 @@ Function.prototype.myCall = function (context) {
       }
   }
 
-  var c = new2(M)
+  function create() {
+    // 创建一个空的对象
+    let obj = new Object()
+    // 获得构造函数
+    let Con = [].shift.call(arguments)
+    // 链接到原型
+    obj.__proto__ = Con.prototype
+    // 绑定 this，执行构造函数
+    let result = Con.apply(obj, arguments)
+    // 确保 new 出来的是个对象
+    return typeof result === 'object' ? result : obj
+}
+M.prototype.talk = function(){
+    alert(this.name)
+}
+var c = create(M)
+
+function f(x,y,z = 0){
+    return x+y+z;
+}
+console.log(f.call(this, 1,2))
+
+Function.prototype.myCall = function(context) {
+    var context = context || window
+    context.m = this
+    var args = [...arguments].slice(1)
+    var res = context.m(...args)
+    delete context.m
+    return res
+}
+
+console.log(f.myCall({name:1}, 1,2))
+
+Function.prototype.myBind = function(context) {
+    var self = this
+    // 获取bind时候的参数列表
+    var args = [...arguments].slice(1)
+
+    var fn = function () {
+        // 获取bind之后function的参数列表
+        var bindargs = [...arguments].slice(0)
+        var _self = this instanceof fn ? this : context
+        return self.apply(_self, args.concat(bindargs))
+    }
+    // 获取bind的函数的原型链上的参数
+    fn.prototype = Object.create(self.prototype)
+    return fn
+}
+
+// 测试用例
+var value = 2;
+var foo = {
+    value: 1
+};
+function bar(name, age) {
+    this.habit = 'shopping';
+    console.log(this.value);
+    console.log(name);
+    console.log(age);
+}
+bar.prototype.friend = 'kevin';
+
+var bindFoo = bar.myBind(foo, 'Jack'); // bind2
+var obj = new bindFoo(20); // 返回正确
+
+obj.habit
+obj.friend

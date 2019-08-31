@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+         section {
+             position: relative;
+         }   
+
+        div {
+            padding: 0 0 0 5px;
+            margin-bottom: 10px;
+            height: 30px;
+            line-height: 30px;
+            background: #eee;
+        }
+
+        div:nth-child(2) {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        div:nth-child(2n-1) {
+            color: green;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section style="max-width: 1000px; margin: 0 auto;">
+        <div>这是第一条元素</div>
+        <div>这是第二条元素</div>
+        <div>这是第三条元素</div>
+        <div>这是第四条元素</div>
+        <div>这是第五条元素</div>
+    </section>
+    <footer>
+        <p>power by me @2019</p>
+    </footer>
+</body>
+
+</html>

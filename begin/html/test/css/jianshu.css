@@ -112,12 +112,13 @@ header nav .content {
 .content .content-search {
     position: relative;
     display: inline-block;
+    margin-left: 15px;
 }
 
 .content-search input {
-    transition: width .2s ease;
+    transition: width .5s ease;
     padding: 10px 36px 10px 20px;
-    width: 240px;
+    width: 200px;
     height: 38px;
     appearance: none;
     background: #eee;
@@ -128,7 +129,7 @@ header nav .content {
 }
 .content-search input:focus {
     outline: none;
-    width: 300px;
+    width: 260px;
 }
 .content-search .search-btn {
     position: absolute;
@@ -185,7 +186,57 @@ header nav .content {
 
 /* main */
 main {
+    display: flex;
     width: 960px;
     margin: 0 auto;
     margin-top: 78px;
+}
+main .write-wrap{
+    flex: 1;
+}
+
+main .write-wrap ul .write-content{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+main .write-wrap ul .write-content > img {
+    width: 150px;
+    height: 100px;
+    margin-left: 15px;
+}
+
+main .write-wrap ul .write-content .write-content-left .write-title {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+main .write-wrap ul .write-content .write-content-left .write-title:visited {
+    color: #969696;
+}
+
+main .write-wrap ul .write-content .write-content-left .write-title:hover {
+    text-decoration: underline;
+}
+
+main .write-wrap ul .write-content .write-content-left .write-desc {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+}
+
+main .recommend-wrap {
+    width: 280px;
+    margin-left: 40px;
+}
+
+main .recommend-wrap .recommend-topic > img {
+    width: 100%;
 }

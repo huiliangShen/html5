@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            /* font-size: 0; */
+        }
+        main > .my-wrap {
+            /* background: blue; */
+        }
+        main .my-wrap + .my-second-wrap {
+            background: red;
+        }
+        main .my-wrap ~ .my-t-wrap {
+            background: yellow;
+        }
+        .child:parent ~ .my-second-wrap {
+            background: pink;
+        }
+        .my-second-wrap::before {
+            display: block;
+            content: ' ';
+        }
+        main #wrap.my-wrap {
+            background: #343434;
+        }
+        .my-wrap {
+            background: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <main>
+            <div class="my-wrap" id="wrap">
+                    这是块级元素 link visited hover active
+                    <!-- <div class="child">123</div> -->
+                </div>
+                <div class="my-second-wrap">
+                    这是第二个块级元素
+                </div>
+                <div class="my-t-wrap">
+                    sasdjaljsd
+                </div>
+    </main>
+    <footer>
+        d1e21e
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制圆角矩形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+            if (canvas.getContext('2d')) {
+                var ctx = canvas.getContext('2d')
+                drawRoundRect(ctx, 600, 400, 100, 100, 20)
+            } else {
+                alert('不支持canvas')
+            }
+        }
+
+        function drawRoundRect(ctx, width, height, x, y, r) {
+            ctx.save()
+            ctx.translate(x, y)
+            pathRoundRect(ctx, width, height, r)
+            ctx.strokeStyle = 'black'
+            ctx.stroke()
+            ctx.restore()
+        }
+
+        function pathRoundRect(ctx, width, height, r) {
+            ctx.beginPath()
+            ctx.arc(r, r, r, Math.PI, 1.5*Math.PI)
+           // ctx.lineTo(r, 0)
+           //  ctx.lineTo(width -r, 0)
+            ctx.arc(width - r, r, r, 1.5*Math.PI, 2* Math.PI)
+            // ctx.lineTo(width, r)
+           // ctx.lineTo(width, height - r)
+            ctx.arc(width - r, height - r, r,  0,  0.5* Math.PI)
+            // ctx.lineTo(width - r, height)
+            // ctx.lineTo(r, height)
+            ctx.arc(r, height - r, r, 0.5 * Math.PI,  Math.PI)
+            // ctx.lineTo(0, height - r)
+           //  ctx.lineTo(0, r)
+            ctx.closePath()
+        }
+    </script>
+</body>
+
+</html>

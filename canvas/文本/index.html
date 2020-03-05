@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+
+            canvas.width = 1200
+            canvas.height = 800
+
+            var ctx = canvas.getContext('2d')
+            ctx.font = 'bold 40px Arial'
+
+            ctx.fillStyle = '#f00'
+            ctx.strokeStyle = '#f00'
+            ctx.fillText('hello world 111', 40, 100)
+
+            ctx.lineWidth = 1
+            ctx.strokeText('hello world', 40, 200)
+
+            ctx.fillText('hello world', 40, 300, 400)
+            ctx.strokeText('hello world', 40, 400, 400)
+
+            var linear = ctx.createLinearGradient(0, 0, 800, 0)
+            linear.addColorStop(0, 'red')
+            linear.addColorStop(0.25, 'orange')
+            linear.addColorStop(0.5, 'yellow')
+            linear.addColorStop(0.75, 'green')
+            linear.addColorStop(1, 'purple')
+            ctx.fillStyle = linear
+            ctx.fillText('hello world awqpapqweqweqweqweRRRR', 40, 500)
+
+            var bgImage = new Image()
+            bgImage.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582696008415&di=b2ca53d1bec315b969ff02b1d20b9f47&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fys_b_img%2F00%2F73%2F28%2FgsBllPWkIx.jpg'
+            bgImage.onload = function () {
+                var pattern = ctx.createPattern(bgImage, 'repeat')
+                ctx.fillStyle = pattern
+               
+                ctx.font = 'bold 150px Arial'
+                ctx.fillText('Hello World', 40, 650)
+                ctx.strokeText('Hello World', 40, 650)
+            }
+        }
+    </script>
+</body>
+</html>

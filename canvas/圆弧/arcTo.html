@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acrTo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+            if (canvas.getContext('2d')) {
+                var ctx = canvas.getContext('2d')
+                drawArcTo(ctx, 150, 100, 650, 200, 650, 650, 600)
+            } else {
+                alert('不支持canvas')
+            }
+        }
+
+        function drawArcTo(ctx, x0, y0, x1, y1, x2, y2, r) {
+            ctx.beginPath()
+            ctx.moveTo(x0, y0)
+            ctx.arcTo(x1, y1, x2, y2, r)
+
+            ctx.lineWidth = 6
+            ctx.strokeStyle = 'red'
+            ctx.stroke()
+
+            ctx.beginPath()
+            ctx.moveTo(x0, y0)
+            ctx.lineTo(x1, y1)
+            ctx.lineTo(x2, y2)
+
+            ctx.lineWidth = 1
+            ctx.strokeStyle = 'black'
+            ctx.stroke()
+        }
+    </script>
+</body>
+</html>

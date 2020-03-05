@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+            canvas.width = 800
+            canvas.height = 800
+            var ctx = canvas.getContext('2d')
+
+            fillRoundRect(ctx, 500, 500, 150, 150, 10, '#bbada0')
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    fillRoundRect(ctx, 100, 100, 170 + i * 120, 170 + j*120, 6, '#ccc0b3')
+                }
+                
+            }
+        }
+
+        function fillRoundRect(ctx, width, height, x, y, r, color) {
+            ctx.save()
+            ctx.translate(x, y)
+            ctx.fillStyle = color
+            pathRoundRect(ctx, width, height, r)
+            ctx.fill()
+            // ctx.strokeStyle = 'black'
+            // ctx.stroke()
+            ctx.restore()
+        }
+
+        function pathRoundRect(ctx, width, height, r) {
+            ctx.beginPath()
+            ctx.arc(r, r, r, Math.PI, 1.5*Math.PI)
+           // ctx.lineTo(r, 0)
+           //  ctx.lineTo(width -r, 0)
+            ctx.arc(width - r, r, r, 1.5*Math.PI, 2* Math.PI)
+            // ctx.lineTo(width, r)
+           // ctx.lineTo(width, height - r)
+            ctx.arc(width - r, height - r, r,  0,  0.5* Math.PI)
+            // ctx.lineTo(width - r, height)
+            // ctx.lineTo(r, height)
+            ctx.arc(r, height - r, r, 0.5 * Math.PI,  Math.PI)
+            // ctx.lineTo(0, height - r)
+           //  ctx.lineTo(0, r)
+            ctx.closePath()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线性渐变demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+        }
+        body {
+            text-align: center;
+        }
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+            canvas.width = 800
+            canvas.height = 800
+            var ctx = canvas.getContext('2d')
+
+            var linear = ctx.createLinearGradient(0, 0, 800, 0)
+            linear.addColorStop(0, '#f0f')
+            linear.addColorStop(0.25, 'skyblue')
+            linear.addColorStop(0.5, 'blue')
+            linear.addColorStop(0.75, 'yellow')
+            linear.addColorStop(1, 'black')
+            ctx.fillStyle = linear
+            ctx.fillRect(0, 0, 800, 800)
+        }
+    </script>
+</body>
+</html>

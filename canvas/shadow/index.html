@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+
+            canvas.width = 1200
+            canvas.height = 800
+
+            var ctx = canvas.getContext('2d')
+            ctx.shadowColor = 'yellow'
+            ctx.shadowOffsetX = -20
+            ctx.shadowOffsetY = 20
+            ctx.shadowBlur = 10
+
+            ctx.fillStyle = 'blue'
+            ctx.fillRect(150,150, 400, 400)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+        }
+        body {
+            text-align: center;
+        }
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        if (canvas.getContext('2d')) {
+            var ctx = canvas.getContext('2d')
+            ctx.fillStyle = 'red'
+            ctx.strokeStyle = 'black'
+            ctx.fillRect(100, 100, 300, 300)
+            ctx.strokeRect(100, 100, 300, 300)
+            // ctx.stroke()
+        } else {
+            alert('不支持canvas')
+        }
+    </script>
+</body>
+</html>

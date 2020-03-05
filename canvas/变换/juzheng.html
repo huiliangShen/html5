@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩阵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+        }
+        body {
+            text-align: center;
+        }
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        if (canvas.getContext('2d')) {
+            var ctx = canvas.getContext('2d')
+            // 矩阵
+            // a c e
+            // b d f
+            // 0 0 1
+            // a为水平缩放
+            // b为水平倾斜
+            // c为垂直倾斜
+            // d为垂直缩放
+            // e为水平位移
+            // f为垂直位移
+            ctx.save()
+            ctx.transform(1.5, -0.5, -0.5, 1, 100, 100)
+            ctx.setTransform(1, -0, -0, 1, 100, 100)
+            ctx.fillStyle = 'yellow'
+            ctx.fillRect(100, 100, 300, 300)
+            ctx.strokeStyle = 'blue'
+            ctx.strokeRect(100, 100, 300, 300)
+            ctx.restore()
+        } else {
+            alert('不支持canvas')
+        }
+    </script>
+</body>
+</html>

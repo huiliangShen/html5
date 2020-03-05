@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var ball = {x: 600, y: 400, vx: 5, vy: 5, r: 150}
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            canvas.width = 1200
+            canvas.height = 800
+
+            var ctx = canvas.getContext('2d')
+            draw(ctx)
+            setInterval(() => {
+                draw(ctx)
+                update()
+            }, 20)
+        }
+
+        function update() {
+            ball.x += ball.vx
+            ball.y += ball.vy
+
+            if (ball.x < ball.r) {
+                ball.x = ball.r
+                ball.vx = -ball.vx
+            }
+            if (ball.y < ball.r) {
+                ball.y = ball.r
+                ball.vy = -ball.vy
+            }
+            if (ball.x + ball.r > 1200) {
+                ball.x = 1200 - ball.r
+                ball.vx = -ball.vx
+            }
+            if (ball.y + ball.r > 800) {
+                ball.y = 800 - ball.r
+                ball.vy = -ball.vy
+            }
+        }
+
+        function draw(ctx) {
+            ctx.clearRect(0, 0, 1200, 800)
+            ctx.save()
+            ctx.fillStyle = '#000'
+            ctx.fillRect(0, 0, 1200, 800) 
+
+            ctx.beginPath()
+            ctx.fillStyle = '#fff'
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2)
+            ctx.fill()
+            ctx.clip()
+            ctx.closePath()
+
+            ctx.beginPath()
+            ctx.font = 'bold 150px Arial'
+            ctx.textAlign = 'center'
+            ctx.fillStyle = '#358'
+            ctx.fillText('canvas better', 600, 200)
+            ctx.fillText('canvas better', 600, 400)
+            ctx.fillText('canvas better', 600, 600)
+            ctx.closePath()
+            ctx.restore()
+        }
+    </script>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ function test1 (name) {
     }
     return this.fn
 }
-
+// var name = 11111
 var t = new test1('1');
-console.log(t.name)
+t.name = 111
+console.log(t())

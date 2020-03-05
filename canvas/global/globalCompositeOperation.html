@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+
+        .btn-list {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 0 10px;
+            background: skyblue;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <div class="btn-list">
+        <a href="#" class="btn">source-over</a>
+        <a href="#" class="btn">source-atop</a>
+        <a href="#" class="btn">source-in</a>
+        <a href="#" class="btn">source-out</a>
+        <a href="#" class="btn">destination-over</a>
+        <a href="#" class="btn">destination-atop</a>
+        <a href="#" class="btn">destination-in</a>
+        <a href="#" class="btn">destination-out</a>
+        <a href="#" class="btn">lighter</a>
+        <a href="#" class="btn">copy</a>
+        <a href="#" class="btn">xor</a>
+    </div>
+    <script>
+        window.onload = () => {
+            draw('source-over')
+            var btn = document.getElementsByClassName('btn')
+            for (let i = 0; i < btn.length; i++) {
+                btn[i].onclick = function () {
+                    console.log(this.text)
+                    draw(this.text)
+                    return false
+                };
+            }
+        }
+
+        function draw(composite) {
+            var canvas = document.querySelector('canvas')
+            canvas.width = 1200
+            canvas.height = 800
+            var ctx = canvas.getContext('2d')
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.font = 'bold 40px Arial'
+            ctx.textAlign = 'center'
+            ctx.textBaseline = 'middle'
+            ctx.fillStyle = '#058'
+            ctx.fillText('composite = ' + composite, canvas.width / 2, 60)
+
+            ctx.fillStyle = 'green'
+            ctx.fillRect(200, 200, 400, 400)
+            ctx.fill()
+
+            ctx.globalCompositeOperation = composite
+
+            ctx.save()
+            ctx.translate(-50, -150)
+            ctx.scale(1.2, 1.2)
+            ctx.beginPath()
+            ctx.fillStyle = 'blue'
+            ctx.moveTo(500, 400)
+            ctx.lineTo(700, 700)
+            ctx.lineTo(300, 700)
+            // ctx.lineTo(500, 400)
+
+            // ctx.stroke()
+            ctx.closePath()
+            ctx.fill()
+            ctx.restore()
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        var balls = []
+        var ctx = canvas.getContext('2d')
+        window.onload = () => {
+            canvas.width = 1200
+            canvas.height = 800
+
+
+
+            for (let i = 0; i < 20; i++) {
+                balls.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 10 + 30
+                })
+            }
+
+            draw(ctx)
+            canvas.addEventListener('mousemove', choose)
+        }
+
+        function choose(e) {
+            var x = e.clientX - canvas.getBoundingClientRect().left
+            var y = e.clientY - canvas.getBoundingClientRect().top
+
+            for (let i = 0; i < balls.length; i++) {
+                // const element = balls[i];
+                ctx.beginPath()
+                ctx.arc(balls[i].x, balls[i].y, balls[i].r, 0, Math.PI * 2, true)
+
+                if (ctx.isPointInPath(x, y)) {
+                    ctx.fillStyle = 'red'
+                    ctx.fill()
+                }
+            }
+        }
+
+        function draw(ctx) {
+            ctx.clearRect(0, 0, 1200, 800)
+
+            for (let i = 0; i < balls.length; i++) {
+                const element = balls[i];
+                ctx.beginPath()
+                ctx.fillStyle = 'green'
+                ctx.arc(balls[i].x, balls[i].y, balls[i].r, 0, Math.PI * 2, true)
+                ctx.closePath()
+                ctx.fill()
+            }
+        }
+    </script>
+</body>
+
+</html>

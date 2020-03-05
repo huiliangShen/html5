@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvasa"></canvas>
+    <!--   <canvas id="canvasb"></canvas>
+    <canvas id="canvas"></canvas> -->
+    <input type="file" id="file" placeholder="上传文件">
+    <button type="button" onclick="add()">确定</button>
+    <button type="button" onclick="rotate()">旋转</button>
+
+    <script>
+        var canvasa = document.getElementById('canvasa')
+        canvasa.width = 1000
+        canvasa.height = 800
+        var ctxa = canvasa.getContext('2d')
+        var imagea = new Image()
+        var fileDom = document.getElementById('file')
+        var fileValue = ''
+        var imageUrl = ''
+
+        window.onload = () => {
+            imagea.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC'
+            imagea.onload = () => {
+                var pattern = ctxa.createPattern(imagea, 'repeat')
+                ctxa.fillStyle = pattern
+                ctxa.fillRect(0, 0, canvasa.width, canvasa.height)
+            }
+        }
+
+        fileDom.addEventListener('change', (e) => {
+            var file = e.target.files[0]
+            if (file) {
+                fileValue = file
+            }
+        })
+
+        function filetoDataURL(file, fn) {
+            var reader = new FileReader();
+            reader.onloadend = function (e) {
+                fn(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        };
+
+        function add() {
+            draw()
+        }
+
+        var step = 1
+
+        function draw(rotate) {
+            fileValue && filetoDataURL(fileValue, (url) => {
+                var image = new Image()
+                
+                image.onload = () => {
+                    // ctxa.globalAlpha = .7
+                    ctxa.clearRect(0, 0, canvasa.width, canvasa.height)
+                    var pattern = ctxa.createPattern(imagea, 'repeat')
+                    ctxa.fillStyle = pattern
+                    ctxa.fillRect(0, 0, canvasa.width, canvasa.height)
+
+                    ctxa.save()
+                    ctxa.beginPath()
+                    var _w = image.width
+                    var _h = image.height
+                    var scale = getScale(_w, _h)
+                    var dx = canvasa.width / 2 - _w / scale / 2
+                    var dy = canvasa.height / 2 - _h / scale / 2
+                    if (rotate) {
+                        ctxa.rotate(90 * step / 180 * Math.PI)
+                       /*  var k = dx
+                        dx = dy
+                        dy = k */
+                        step++
+                    }
+                    ctxa.drawImage(image, dx, dy, _w / scale, _h / scale)
+                    ctxa.restore()
+                }
+
+                image.src = url
+            })
+        }
+
+        function getScale(w, h) {
+            var scale = 1
+            if (w > canvasa.width || h > canvasa.height) {
+                scale = w - canvasa.width > h - canvasa.height ? w / canvasa.width : h / canvasa.height
+            }
+            return scale
+        }
+
+        function rotate() {
+            draw(1)
+        }
+    </script>
+</body>
+
+</html>

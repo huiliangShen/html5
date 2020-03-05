@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        window.onload = () => {
+            var canvas = document.querySelector('canvas')
+            canvas.width = 1200
+            canvas.height = 800
+            var ctx = canvas.getContext('2d')
+            ctx.globalAlpha = .7
+            for (let i = 0; i < 100; i++) {
+                var r = Math.floor(Math.random() * 255)
+                var g = Math.floor(Math.random() * 255)
+                var b = Math.floor(Math.random() * 255)
+                ctx.fillStyle = `rgb(${r},${g},${b})`
+                draw(ctx, Math.random()*canvas.width, Math.random()*canvas.height, Math.random()* 100)
+                ctx.fill()
+            }
+        }
+
+        function draw(ctx, x, y, r) {
+            ctx.beginPath()
+            ctx.arc(x, y, r, 0, 2 * Math.PI)
+            ctx.closePath()
+        }
+    </script>
+</body>
+
+</html>

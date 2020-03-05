@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas五角星</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            if (canvas.getContext('2d')) {
+                canvas.width = 800
+                canvas.height = 600
+                var ctx = canvas.getContext('2d')
+                ctx.fillStyle = 'black'
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
+                for (let i = 0; i < 200; i++) {
+                    var x = Math.random() * canvas.width
+                    var y = Math.random() * canvas.height
+                    var r = Math.random() * 10 + 10
+                    var deg = Math.random() * 360
+                    if (x - r > 0 && x + r < canvas.width && y - r > 0 && y + r < canvas.height) {    
+                        drawStar(ctx, x, y, r, r / 2, deg)
+                    }
+                }
+            } else {
+                alert('不支持canvas')
+            }
+        }
+
+        function drawStar(ctx, x, y, R, r, deg) {
+            ctx.beginPath()
+            for (let i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + i * 72 - deg) / 180 * Math.PI) * R + x,
+                    -Math.sin((18 + i * 72 - deg) / 180 * Math.PI) * R + y)
+
+                ctx.lineTo(Math.cos((54 + i * 72 - deg) / 180 * Math.PI) * r + x,
+                    -Math.sin((54 + i * 72 - deg) / 180 * Math.PI) * r + y)
+
+            }
+            ctx.closePath()
+            ctx.fillStyle = '#fb3'
+            ctx.strokeStyle = '#fb5'
+            ctx.lineWidth = 3
+            ctx.lineJoin = 'round'
+            ctx.fill()
+            ctx.stroke()
+        }
+    </script>
+</body>
+
+</html>

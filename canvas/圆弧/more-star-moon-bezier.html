@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas五角星</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            if (canvas.getContext('2d')) {
+                canvas.width = 800
+                canvas.height = 600
+                var ctx = canvas.getContext('2d')
+                // 背景
+                var linear = ctx.createLinearGradient(0, 0, 0, canvas.height)
+                linear.addColorStop(0, '#000')
+                linear.addColorStop(1, '#035')
+                ctx.fillStyle = linear
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
+                
+                // 星空
+                for (let i = 0; i < 200; i++) {
+                    var x = Math.random() * canvas.width
+                    var y = Math.random() * canvas.height * 0.65
+                    var r = Math.random() * 5 + 5
+                    var deg = Math.random() * 360
+                    if (x - r > 0 && x + r < canvas.width && y - r > 0 && y + r < canvas.height) {
+                        drawStar(ctx, x, y, r, deg)
+                    }
+                }
+                // 月亮
+                drawMoon(ctx, 2, 600, 150, 80, 30)
+                // 草地
+                drawGreen(ctx)
+            } else {
+                alert('不支持canvas')
+            }
+        }
+
+        function drawStar(ctx, x, y, R, deg) {
+            // 消除变换带来的副作用
+            ctx.save()
+
+            ctx.translate(x, y)
+            ctx.rotate(deg / 180 * Math.PI)
+            // ctx.scale 副作用 边框 位置（x,y）都会被缩放
+            ctx.scale(R, R)
+            startPath(ctx)
+
+            ctx.fillStyle = '#fb3'
+            // 副作用
+            // ctx.strokeStyle = '#fb5'
+            // ctx.lineWidth = 3
+            // ctx.lineJoin = 'round'
+
+            ctx.fill()
+            // ctx.stroke()
+
+            ctx.restore()
+        }
+
+        function startPath(ctx) {
+            ctx.beginPath()
+            for (let i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI),
+                    -Math.sin((18 + i * 72) / 180 * Math.PI))
+
+                ctx.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 0.5,
+                    -Math.sin((54 + i * 72) / 180 * Math.PI) * 0.5)
+
+            }
+            ctx.closePath()
+        }
+
+        function drawMoon(ctx, d, x, y, R, rot, color) {
+            ctx.save()
+            ctx.translate(x, y)
+            ctx.rotate(rot / 180 * Math.PI)
+            ctx.scale(R, R)
+            pathMoon(ctx, d)
+            ctx.fillStyle = color || '#fb5'
+            ctx.fill()
+            ctx.restore()
+        }
+
+        function pathMoon(ctx, d) {
+            ctx.beginPath()
+            ctx.arc(0, 0, 1, 0.5 * Math.PI, 1.5 * Math.PI, true)
+            ctx.moveTo(0, -1)
+            ctx.arcTo(d, 0, 0, 1, dis(0, -1, d, 0) / d)
+            ctx.closePath()
+        }
+
+        function dis(x1, y1, x2, y2) {
+            return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
+        }
+
+        function drawGreen(ctx) {
+            ctx.save()
+            ctx.beginPath()
+            ctx.moveTo(0, 450)
+            ctx.bezierCurveTo(240, 350, 500, 590, 800, 450)
+            ctx.lineTo(800, 600)
+            ctx.lineTo(0, 600)
+
+            var linear = ctx.createLinearGradient(0, 600, 0, 0)
+            linear.addColorStop(0, '#030')
+            linear.addColorStop(1, '#580')
+            ctx.fillStyle = linear
+            ctx.fill()
+            ctx.closePath()
+            ctx.restore()
+        }
+    </script>
+</body>
+
+</html>

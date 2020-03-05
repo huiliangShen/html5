@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas五角星</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.querySelector('canvas')
+            if (canvas.getContext('2d')) {
+                canvas.width = 800
+                canvas.height = 600
+                var ctx = canvas.getContext('2d')
+                ctx.lineWidth = 10
+                ctx.lineJoin = 'miter' //'bevel' //'miter' //'round'
+                ctx.miterLimit = 10
+                drawStar(ctx, 400, 300, 250, 20, 5)
+
+                ctx.lineWidth = 10
+                ctx.beginPath()
+                ctx.lineCap = 'butt' // default
+                ctx.moveTo(50, 100)
+                ctx.lineTo(100, 100)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.lineCap = 'round'
+                ctx.moveTo(50, 125)
+                ctx.lineTo(100, 125)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.lineCap = 'square'
+                ctx.moveTo(50, 150)
+                ctx.lineTo(100, 150)
+                ctx.stroke()
+            } else {
+                alert('不支持canvas')
+            }
+        }
+
+        function drawStar(ctx, x, y, R, r, deg) {
+            ctx.beginPath()
+            for (let i = 0; i < 5; i++) {
+                ctx.lineTo(Math.cos((18 + i * 72 - deg) / 180 * Math.PI) * R + x,
+                    -Math.sin((18 + i * 72 - deg) / 180 * Math.PI) * R + y)
+
+                ctx.lineTo(Math.cos((54 + i * 72 - deg) / 180 * Math.PI) * r + x,
+                    -Math.sin((54 + i * 72 - deg) / 180 * Math.PI) * r + y)
+
+            }
+            ctx.closePath()
+            ctx.stroke()
+        }
+    </script>
+</body>
+
+</html>

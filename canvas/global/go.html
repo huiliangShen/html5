@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var balls = []
+        var width = 1200
+        var height = 800
+        window.onload = () => {
+            balls = []
+            var canvas = document.querySelector('canvas')
+            canvas.width = width
+            canvas.height = height
+            var ctx = canvas.getContext('2d')
+            for (let i = 0; i < 60; i++) {
+                var r = Math.floor(Math.random() * 255)
+                var g = Math.floor(Math.random() * 255)
+                var b = Math.floor(Math.random() * 255)
+                // ctx.fillStyle = `rgb(${r},${g},${b})`
+                // draw(ctx, Math.random()*canvas.width, Math.random()*canvas.height, Math.random()* 100)
+                // ctx.fill()
+                var ball = {
+                    x: Math.random() * (width - 2 * r) + r,
+                    y: Math.random() *  (height - 2 * r) + r,
+                    vx: Math.pow(-1, Math.ceil(Math.random() * 100)) * (Math.random() * 5 + 5),
+                    vy: Math.pow(-1, Math.ceil(Math.random() * 100)) * (Math.random() * 5 + 5),
+                    g: Math.random() * 0.2,
+                    r: Math.random() * 80 + 10,
+                    color: `rgb(${r},${g},${b})`
+                }
+                balls.push(ball)
+            }
+            setInterval(() => {
+                render(ctx)
+                update()
+            }, 20)
+        }
+
+        function render(ctx) {
+            ctx.clearRect(0, 0, width, height)
+            for (let i = 0; i < balls.length; i++) {
+                const element = balls[i];
+                ctx.beginPath()
+                ctx.globalCompositeOperation = 'lighter'
+                ctx.fillStyle = element.color
+                ctx.arc(element.x, element.y, element.r, 0, 2 * Math.PI)
+                ctx.closePath()
+                ctx.fill()
+            }
+        }
+
+        function update() {
+            for (let i = 0; i < balls.length; i++) {
+                const ball = balls[i];
+                ball.y += ball.vy;
+                ball.x += ball.vx;
+                // ball.vx += ball.g;
+                // ball.vy += ball.g;
+
+                if (ball.y > height - ball.r) {
+                    ball.y = height - ball.r
+                    ball.vy = -ball.vy
+                }
+                if (ball.y - ball.r < 0) {
+                    ball.y = ball.r
+                    ball.vy = -ball.vy
+                }
+
+                if (ball.x > width - ball.r) {
+                    ball.x = width - ball.r
+                    ball.vx = -ball.vx
+                }
+                if (ball.x < ball.r) {
+                    ball.x = ball.r
+                    ball.vx = -ball.vx
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

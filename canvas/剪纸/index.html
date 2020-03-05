@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>径向渐变demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+        }
+        body {
+            text-align: center;
+        }
+        canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.querySelector('canvas')
+        window.onload = () => {
+            canvas.width = 1200
+            canvas.height = 800
+            var ctx = canvas.getContext('2d')
+
+            draw(ctx)
+            /* window.addEventListener('mouseup', choose) */
+        }
+
+       /*  function choose (e) {
+            var x = e.clientX - canvas.getBoundingClientRect().left 
+            var y = e.clientY - canvas.getBoundingClientRect().top 
+            ctx.isPointInPath(x, y)
+        } */
+
+        function draw(ctx) {
+            ctx.clearRect(0, 0, 1200, 800)
+            ctx.beginPath()
+            ctx.fillStyle = '#358'
+            ctx.shadowColor = 'gray'
+            ctx.shadowOffsetX = 10
+            ctx.shadowOffsetY = 10
+            ctx.shadowBlur = 5
+            ctx.arc(600, 400, 150, 0, Math.PI*2, true)
+            ctx.arc(600, 400, 250, 0, Math.PI*2)
+            
+            ctx.closePath()
+            ctx.fill()
+        }
+    </script>
+</body>
+</html>

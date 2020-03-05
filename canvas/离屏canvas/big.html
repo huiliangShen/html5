@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+        }
+
+        body {
+            background: #000;
+            text-align: center;
+        }
+
+        #canvas {
+            margin-top: 10px;
+            border: 1px solid black;
+        }
+
+        #offCanvas {
+            display: none;
+            border-radius: 50%;
+            border: 1px solid;
+        }
+
+        input[type='range'] {
+            display: block;
+            margin: 10px auto;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <canvas id="offCanvas"></canvas>
+    <script>
+        var canvas = document.querySelector('#canvas')
+        var ctx = canvas.getContext('2d')
+
+        var offCanvas = document.querySelector('#offCanvas')
+        var offCtx = offCanvas.getContext('2d')
+
+        var scale
+        var isMouseDown = false
+
+        var img = new Image()
+        window.onload = () => {
+            canvas.width = 1200
+            canvas.height = 800
+
+            img.src = '../../images/bg-lg.jpg'
+            img.onload = function () {
+                offCanvas.width = img.width
+                offCanvas.height = img.height
+                scale = offCanvas.width / canvas.width
+
+                ctx.drawImage(img, 0, 0, img.width, img.height)
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+            }
+        }
+
+        canvas.addEventListener('mouseenter', function (e) {
+            isMouseDown = true
+            var pointer = getPointer(e)
+            drawImage(true, pointer)
+        }, false)
+
+        canvas.addEventListener('mouseleave', function (e) {
+            isMouseDown = false
+            drawImage(false)
+        }, false)
+
+        canvas.addEventListener('mousemove', function (e) {
+
+            if (isMouseDown) {
+                var pointer = getPointer(e)
+                drawImage(true, pointer)
+            }
+        }, false)
+
+        canvas.addEventListener('mouseout', function (e) {
+            isMouseDown = false
+            drawImage(false)
+        }, false)
+
+
+        function drawImage(isShow, pointer) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+            if (isShow) {
+                drawImageByScale(pointer)
+            }
+        }
+
+        function drawImageByScale(pointer) {
+            var imgLG_x = pointer.x * scale
+            var imgLG_y = pointer.y * scale
+
+            var mr = 200
+
+            var sx = imgLG_x - mr
+            var sy = imgLG_y - mr
+
+            var dx = pointer.x - mr
+            var dy = pointer.y - mr
+
+            ctx.save()
+            ctx.beginPath()
+            ctx.lineWidth = 10
+            ctx.strokeStyle = '#069'
+
+            ctx.arc(pointer.x, pointer.y, mr, 0, Math.PI*2)
+            ctx.clip()
+
+            ctx.drawImage(img, sx, sy, 2 * mr, 2 * mr, dx, dy, 2 * mr, 2 * mr)
+            ctx.stroke()
+            ctx.restore()
+        }
+
+        function getPointer(e) {
+            var x = e.clientX - canvas.getBoundingClientRect().x
+            var y = e.clientY - canvas.getBoundingClientRect().y
+            return {x, y}
+        }
+
+    </script>
+</body>
+
+</html>
